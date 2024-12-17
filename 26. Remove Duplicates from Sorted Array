@@ -1,0 +1,39 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        length = len(nums)
+        left = 0
+        right = length - 1 
+        while left < right:
+            if nums[left]] == nums[left+1]:
+                for j in range(i+1,length-1):
+                    nums[j] = nums[j+1]
+                length = length - 1
+            else:
+                i += 1
+        
+        return length
+        
+
+above is naive approach 
+Optimize the approach for large array:
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        index = 1
+        length = len(nums)
+        for i in range(1, length):
+            if nums[i] != nums[i-1]:
+                nums[index] = nums[i]
+                index += 1
+        
+        return index
+        
